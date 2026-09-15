@@ -17,7 +17,9 @@
   "effective_from",
   "revision_date",
   "attach",
-  "contents"
+  "owners",
+  "contents",
+  "author_reminder_sent"
  ],
  "fields": [
   {
@@ -112,13 +114,29 @@
    "fieldtype": "Date",
    "label": "Next Revision Date",
    "reqd": 1
+  },
+  {
+   "fieldname": "owners",
+   "fieldtype": "Table",
+   "label": "Document Register Owners",
+   "options": "Document Register Owners",
+   "reqd": 1
+  },
+  {
+   "default": "0",
+   "description": "Set automatically once the Author revision reminder has been emailed for this document. See Safety Settings > Document Register Reminder (Days Before Revision Date).",
+   "fieldname": "author_reminder_sent",
+   "fieldtype": "Check",
+   "label": "Revision Reminder Sent",
+   "no_copy": 1,
+   "read_only": 1
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2026-06-18 10:24:40.359915",
+ "modified": "2026-09-14 15:10:00.000000",
  "modified_by": "Administrator",
  "module": "Safety",
  "name": "Document Register",

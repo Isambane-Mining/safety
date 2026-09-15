@@ -1,0 +1,641 @@
+[
+ {
+  "doctype": "ICAM Category",
+  "name": "Organisational Failings-Change management",
+  "icam_level": "Organisational Failings",
+  "category": "Change management",
+  "description": "- Absence of a change management process\n- Unauthorised changes made to equipment, system or process\n- Failure to communicate changes\n- Training programs not updated with latest versions or changes\n- Changes to equipment, systems or processes not considered",
+  "docstatus": 0,
+  "modified": "2026-09-15 09:00:00.000000"
+ },
+ {
+  "doctype": "ICAM Category",
+  "name": "Organisational Failings-Communication",
+  "icam_level": "Organisational Failings",
+  "category": "Communication",
+  "description": "- Lack of communication within the organisation\n- Policies, standards and procedures not adequately communicated\n- Lack of consultation with external stakeholders\n- Language problems or cultural barriers not recognised nor addressed by the organisation\n- Lack of clear lines of communication\n- Missing or excessive information",
+  "docstatus": 0,
+  "modified": "2026-09-15 09:00:00.000000"
+ },
+ {
+  "doctype": "ICAM Category",
+  "name": "Organisational Failings-Contractor management",
+  "icam_level": "Organisational Failings",
+  "category": "Contractor management",
+  "description": "- Failure to identify and manage bridging requirements between contractor and Seriti Power standards\n- Contracts do not specify HSE performance requirements\n- Unclear reporting relationships, lines of communication and roles and responsibilities\n- Poor pre-qualification assessment of contractor\n- Inadequate compliance and performance reviews by Seriti Power",
+  "docstatus": 0,
+  "modified": "2026-09-15 09:00:00.000000"
+ },
+ {
+  "doctype": "ICAM Category",
+  "name": "Organisational Failings-Equipment condition and maintenance",
+  "icam_level": "Organisational Failings",
+  "category": "Equipment condition and maintenance",
+  "description": null,
+  "docstatus": 0,
+  "modified": "2026-09-15 09:00:00.000000"
+ },
+ {
+  "doctype": "ICAM Category",
+  "name": "Organisational Failings-Risk management",
+  "icam_level": "Organisational Failings",
+  "category": "Risk management",
+  "description": "- No risk assessment process\n- Risk assessment process inadequate\n- Risk assessment not reviewed by competent people\n- Risk underestimated\n- Risk assessment undertaken by inexperienced or incompetent people\n- Failure to identify risks introduced by simultaneous operations",
+  "docstatus": 0,
+  "modified": "2026-09-15 09:00:00.000000"
+ },
+ {
+  "doctype": "ICAM Category",
+  "name": "Organisational Failings-Area, plant, process or building design",
+  "icam_level": "Organisational Failings",
+  "category": "Area, plant, process or building design",
+  "description": null,
+  "docstatus": 0,
+  "modified": "2026-09-15 09:00:00.000000"
+ },
+ {
+  "doctype": "ICAM Category",
+  "name": "Organisational Failings-Leadership",
+  "icam_level": "Organisational Failings",
+  "category": "Leadership",
+  "description": "- Lack of accountability\n- Insufficient resources allocated to effectively manage the risk\n- Lack of management commitment\n- Management unaware of work progress\n- Personnel not empowered to stop the job\n- Lack of care or compassion shown by manager / supervisor\n- Lack of awareness of values and expectations\n- Inappropriate culture\n- Failure to integrate HSE into business planning\n- Setting goals that are inconsistent with Seriti Power policy and procedure\n- Setting goals that are inappropriate to the risk\n- Imposing unreasonable time pressure",
+  "docstatus": 0,
+  "modified": "2026-09-15 09:00:00.000000"
+ },
+ {
+  "doctype": "ICAM Category",
+  "name": "Organisational Failings-Documents and Procedures",
+  "icam_level": "Organisational Failings",
+  "category": "Documents and Procedures",
+  "description": null,
+  "docstatus": 0,
+  "modified": "2026-09-15 09:00:00.000000"
+ },
+ {
+  "doctype": "ICAM Category",
+  "name": "Organisational Failings-Training and competence",
+  "icam_level": "Organisational Failings",
+  "category": "Training and competence",
+  "description": "- Poor or inadequate training system\n- Training records not kept or insufficient\n- Training not given\n- Induction program inadequate\n- Personnel not competent to undertake task\n- System to ensure competence inadequate",
+  "docstatus": 0,
+  "modified": "2026-09-15 09:00:00.000000"
+ },
+ {
+  "doctype": "ICAM Category",
+  "name": "Task and Environmental Conditions-Complacency/motivation/attitude",
+  "icam_level": "Task and Environmental Conditions",
+  "category": "Complacency/motivation/attitude",
+  "description": null,
+  "docstatus": 0,
+  "modified": "2026-09-15 09:00:00.000000"
+ },
+ {
+  "doctype": "ICAM Category",
+  "name": "Task and Environmental Conditions-Drugs/alcohol influence",
+  "icam_level": "Task and Environmental Conditions",
+  "category": "Drugs/alcohol influence",
+  "description": null,
+  "docstatus": 0,
+  "modified": "2026-09-15 09:00:00.000000"
+ },
+ {
+  "doctype": "ICAM Category",
+  "name": "Task and Environmental Conditions-Fatigue",
+  "icam_level": "Task and Environmental Conditions",
+  "category": "Fatigue",
+  "description": "- Tiredness\n- Poor shift patterns\n- Excessive overtime work\n- Disturbed sleep patterns due to diseases (e.g. depression)\n- Disturbed sleep patterns due to personal factors (e.g. sick child, financial difficulty)\n- Disturbed sleep patterns due to work factors (e.g. excessive call outs)",
+  "docstatus": 0,
+  "modified": "2026-09-15 09:00:00.000000"
+ },
+ {
+  "doctype": "ICAM Category",
+  "name": "Task and Environmental Conditions-Time/productivity pressures",
+  "icam_level": "Task and Environmental Conditions",
+  "category": "Time/productivity pressures",
+  "description": "- Perceived or actual time constraints\n- Perceived or actual time pressures\n- Perceived or actual schedule pressure\n- Perceived or actual production pressure",
+  "docstatus": 0,
+  "modified": "2026-09-15 09:00:00.000000"
+ },
+ {
+  "doctype": "ICAM Category",
+  "name": "Task and Environmental Conditions-Peer pressure/supervisory example",
+  "icam_level": "Task and Environmental Conditions",
+  "category": "Peer pressure/supervisory example",
+  "description": "- Peer pressure (\u201cC\u2019mon mate, you can do it\u201d)\n- Lack of supervision\n- Age and gender arrogance (\u201cLet me show you how we used to do it\u201d)\n- Supervisor or peers condoning violations (turning a blind eye)\n- Learned helplessness (\u201cBut we\u2019ve always done it like this\u201d)\n- Fear of consequences",
+  "docstatus": 0,
+  "modified": "2026-09-15 09:00:00.000000"
+ },
+ {
+  "doctype": "ICAM Category",
+  "name": "Task and Environmental Conditions-Physical/mental capabilities",
+  "icam_level": "Task and Environmental Conditions",
+  "category": "Physical/mental capabilities",
+  "description": null,
+  "docstatus": 0,
+  "modified": "2026-09-15 09:00:00.000000"
+ },
+ {
+  "doctype": "ICAM Category",
+  "name": "Task and Environmental Conditions-Personal issues",
+  "icam_level": "Task and Environmental Conditions",
+  "category": "Personal issues",
+  "description": "- Family problems\n- Relationship issues\n- Low employee status\n- Hostile environment\n- Bullying",
+  "docstatus": 0,
+  "modified": "2026-09-15 09:00:00.000000"
+ },
+ {
+  "doctype": "ICAM Category",
+  "name": "Task and Environmental Conditions-Distraction/pre-occupation",
+  "icam_level": "Task and Environmental Conditions",
+  "category": "Distraction/pre-occupation",
+  "description": "- Moodiness\n- False perceptions\n- Multi-tasking",
+  "docstatus": 0,
+  "modified": "2026-09-15 09:00:00.000000"
+ },
+ {
+  "doctype": "ICAM Category",
+  "name": "Task and Environmental Conditions-Competency/experience/skill for task",
+  "icam_level": "Task and Environmental Conditions",
+  "category": "Competency/experience/skill for task",
+  "description": "- Incomplete knowledge\n- Insufficient ability\n- Inadequate skill\n- Skill overcomes danger",
+  "docstatus": 0,
+  "modified": "2026-09-15 09:00:00.000000"
+ },
+ {
+  "doctype": "ICAM Category",
+  "name": "Task and Environmental Conditions-Poor/inadequate communications",
+  "icam_level": "Task and Environmental Conditions",
+  "category": "Poor/inadequate communications",
+  "description": "- Messages or instructions not sent or received\n- Messages or instructions not understood\n- Messages or instructions unclear\n- Language barriers\n- Incorrect translation or understanding",
+  "docstatus": 0,
+  "modified": "2026-09-15 09:00:00.000000"
+ },
+ {
+  "doctype": "ICAM Category",
+  "name": "Task and Environmental Conditions-Tolerance of violations",
+  "icam_level": "Task and Environmental Conditions",
+  "category": "Tolerance of violations",
+  "description": "- Violations tolerated (turning a blind eye)\n- Perceived licence to bend rules\n- Task allows for easy shortcuts",
+  "docstatus": 0,
+  "modified": "2026-09-15 09:00:00.000000"
+ },
+ {
+  "doctype": "ICAM Category",
+  "name": "Task and Environmental Conditions-Change of routine",
+  "icam_level": "Task and Environmental Conditions",
+  "category": "Change of routine",
+  "description": "- Unusual activity\n- Abnormal task sequence",
+  "docstatus": 0,
+  "modified": "2026-09-15 09:00:00.000000"
+ },
+ {
+  "doctype": "ICAM Category",
+  "name": "Task and Environmental Conditions-Workplace factors",
+  "icam_level": "Task and Environmental Conditions",
+  "category": "Workplace factors",
+  "description": null,
+  "docstatus": 0,
+  "modified": "2026-09-15 09:00:00.000000"
+ },
+ {
+  "doctype": "ICAM Category",
+  "name": "Task and Environmental Conditions-Task planning/preparation/manning",
+  "icam_level": "Task and Environmental Conditions",
+  "category": "Task planning/preparation/manning",
+  "description": null,
+  "docstatus": 0,
+  "modified": "2026-09-15 09:00:00.000000"
+ },
+ {
+  "doctype": "ICAM Category",
+  "name": "Task and Environmental Conditions-Hazard analysis/Job safety analysis/SLAM",
+  "icam_level": "Task and Environmental Conditions",
+  "category": "Hazard analysis/Job safety analysis/SLAM",
+  "description": null,
+  "docstatus": 0,
+  "modified": "2026-09-15 09:00:00.000000"
+ },
+ {
+  "doctype": "ICAM Category",
+  "name": "Task and Environmental Conditions-Work Procedures - availability and suitability",
+  "icam_level": "Task and Environmental Conditions",
+  "category": "Work Procedures - availability and suitability",
+  "description": "- No procedure for task\n- Inadequate procedure\n- Impractical or unrealistic procedure\n- Procedure not easily accessible, communicated or understood",
+  "docstatus": 0,
+  "modified": "2026-09-15 09:00:00.000000"
+ },
+ {
+  "doctype": "ICAM Category",
+  "name": "Task and Environmental Conditions-Permit to work - availability and suitability",
+  "icam_level": "Task and Environmental Conditions",
+  "category": "Permit to work - availability and suitability",
+  "description": "- No permit system in place\n- Permit not issued for the task\n- Permit requirements not followed\n- Permit does not adequately cover task\n- Disconnect between permit and risk assessment",
+  "docstatus": 0,
+  "modified": "2026-09-15 09:00:00.000000"
+ },
+ {
+  "doctype": "ICAM Category",
+  "name": "Task and Environmental Conditions-Abnormal operational situation or condition",
+  "icam_level": "Task and Environmental Conditions",
+  "category": "Abnormal operational situation or condition",
+  "description": "- Poor operator / system interface\n- Designer / user mismatch\n- Urgent breakdown\n- Production pressures",
+  "docstatus": 0,
+  "modified": "2026-09-15 09:00:00.000000"
+ },
+ {
+  "doctype": "ICAM Category",
+  "name": "Task and Environmental Conditions-Tools/equipment/materials (condition/availability/suitability)",
+  "icam_level": "Task and Environmental Conditions",
+  "category": "Tools/equipment/materials (condition/availability/suitability)",
+  "description": null,
+  "docstatus": 0,
+  "modified": "2026-09-15 09:00:00.000000"
+ },
+ {
+  "doctype": "ICAM Category",
+  "name": "Task and Environmental Conditions-Equipment integrity",
+  "icam_level": "Task and Environmental Conditions",
+  "category": "Equipment integrity",
+  "description": "- Equipment failure\n- Poorly maintained equipment",
+  "docstatus": 0,
+  "modified": "2026-09-15 09:00:00.000000"
+ },
+ {
+  "doctype": "ICAM Category",
+  "name": "Task and Environmental Conditions-Housekeeping",
+  "icam_level": "Task and Environmental Conditions",
+  "category": "Housekeeping",
+  "description": "- Poor housekeeping\n- Poor working conditions\n- Tripping hazards\n- Inappropriately maintained environment (e.g. berms, bunds, walls)",
+  "docstatus": 0,
+  "modified": "2026-09-15 09:00:00.000000"
+ },
+ {
+  "doctype": "ICAM Category",
+  "name": "Task and Environmental Conditions-Weather conditions",
+  "icam_level": "Task and Environmental Conditions",
+  "category": "Weather conditions",
+  "description": "- Wind, rain, flood, heat, sunlight, glare, electrical storms (lightning), etc.",
+  "docstatus": 0,
+  "modified": "2026-09-15 09:00:00.000000"
+ },
+ {
+  "doctype": "ICAM Category",
+  "name": "Task and Environmental Conditions-Chemicals",
+  "icam_level": "Task and Environmental Conditions",
+  "category": "Chemicals",
+  "description": null,
+  "docstatus": 0,
+  "modified": "2026-09-15 09:00:00.000000"
+ },
+ {
+  "doctype": "ICAM Category",
+  "name": "Task and Environmental Conditions-Congestion or restriction work area",
+  "icam_level": "Task and Environmental Conditions",
+  "category": "Congestion or restriction work area",
+  "description": null,
+  "docstatus": 0,
+  "modified": "2026-09-15 09:00:00.000000"
+ },
+ {
+  "doctype": "ICAM Category",
+  "name": "Task and Environmental Conditions-Routine/non-routine task",
+  "icam_level": "Task and Environmental Conditions",
+  "category": "Routine/non-routine task",
+  "description": "- Unfamiliarity with task\n- Task rarely undertaken\n- Ad hoc task inadequately planned\n- Deviation from normal task sequence not assessed for risk or planned",
+  "docstatus": 0,
+  "modified": "2026-09-15 09:00:00.000000"
+ },
+ {
+  "doctype": "ICAM Category",
+  "name": "Task and Environmental Conditions-Fire and/or explosion hazard",
+  "icam_level": "Task and Environmental Conditions",
+  "category": "Fire and/or explosion hazard",
+  "description": null,
+  "docstatus": 0,
+  "modified": "2026-09-15 09:00:00.000000"
+ },
+ {
+  "doctype": "ICAM Category",
+  "name": "Task and Environmental Conditions-Illumination",
+  "icam_level": "Task and Environmental Conditions",
+  "category": "Illumination",
+  "description": null,
+  "docstatus": 0,
+  "modified": "2026-09-15 09:00:00.000000"
+ },
+ {
+  "doctype": "ICAM Category",
+  "name": "Task and Environmental Conditions-Temperature",
+  "icam_level": "Task and Environmental Conditions",
+  "category": "Temperature",
+  "description": "- Hot, Cold, Humidity",
+  "docstatus": 0,
+  "modified": "2026-09-15 09:00:00.000000"
+ },
+ {
+  "doctype": "ICAM Category",
+  "name": "Task and Environmental Conditions-Noise",
+  "icam_level": "Task and Environmental Conditions",
+  "category": "Noise",
+  "description": "- Loud noise affecting ability to hear\n- Overprotection (cannot hear alarms or sirens)",
+  "docstatus": 0,
+  "modified": "2026-09-15 09:00:00.000000"
+ },
+ {
+  "doctype": "ICAM Category",
+  "name": "Task and Environmental Conditions-Ventilation",
+  "icam_level": "Task and Environmental Conditions",
+  "category": "Ventilation",
+  "description": "- Air contamination\n- Insufficient airflow\n- Incorrectly placed brattices",
+  "docstatus": 0,
+  "modified": "2026-09-15 09:00:00.000000"
+ },
+ {
+  "doctype": "ICAM Category",
+  "name": "Task and Environmental Conditions-Pressure",
+  "icam_level": "Task and Environmental Conditions",
+  "category": "Pressure",
+  "description": "- Pressure release\n- Vacuum",
+  "docstatus": 0,
+  "modified": "2026-09-15 09:00:00.000000"
+ },
+ {
+  "doctype": "ICAM Category",
+  "name": "Task and Environmental Conditions-Gas, dust or fumes",
+  "icam_level": "Task and Environmental Conditions",
+  "category": "Gas, dust or fumes",
+  "description": "- Excessive dust affecting visibility\n- Breathing difficulties\n- Air contamination by fumes",
+  "docstatus": 0,
+  "modified": "2026-09-15 09:00:00.000000"
+ },
+ {
+  "doctype": "ICAM Category",
+  "name": "Task and Environmental Conditions-Radiation",
+  "icam_level": "Task and Environmental Conditions",
+  "category": "Radiation",
+  "description": "- Radiation leakage\n- Unidentified radiation sources\n- Non-ionizing\n- Ionizing",
+  "docstatus": 0,
+  "modified": "2026-09-15 09:00:00.000000"
+ },
+ {
+  "doctype": "ICAM Category",
+  "name": "Task and Environmental Conditions-Chemical",
+  "icam_level": "Task and Environmental Conditions",
+  "category": "Chemical",
+  "description": "- Burns\n- Absorption through skin\n- Ingestion",
+  "docstatus": 0,
+  "modified": "2026-09-15 09:00:00.000000"
+ },
+ {
+  "doctype": "ICAM Category",
+  "name": "Task and Environmental Conditions-Stored energy",
+  "icam_level": "Task and Environmental Conditions",
+  "category": "Stored energy",
+  "description": "- Gravitational potential energy (e.g. objects falling or collapsing)\n- Elastic potential energy (e.g. conveyor belt, springs, ropes under tension)\n- Electrical potential energy\n- Thermal potential energy (e.g. heat sources)",
+  "docstatus": 0,
+  "modified": "2026-09-15 09:00:00.000000"
+ },
+ {
+  "doctype": "ICAM Category",
+  "name": "Task and Environmental Conditions-Training",
+  "icam_level": "Task and Environmental Conditions",
+  "category": "Training",
+  "description": "- Inadequate training\n- Training not received\n- Training records inadequate\n- Training records not kept\n- Inexperience",
+  "docstatus": 0,
+  "modified": "2026-09-15 09:00:00.000000"
+ },
+ {
+  "doctype": "ICAM Category",
+  "name": "Task and Environmental Conditions-Wildlife",
+  "icam_level": "Task and Environmental Conditions",
+  "category": "Wildlife",
+  "description": "- Wildlife crossing roads\n- Bites\n- Stings",
+  "docstatus": 0,
+  "modified": "2026-09-15 09:00:00.000000"
+ },
+ {
+  "doctype": "ICAM Category",
+  "name": "Task and Environmental Conditions-Surface gradient/conditions",
+  "icam_level": "Task and Environmental Conditions",
+  "category": "Surface gradient/conditions",
+  "description": "- Wet, muddy or slippery conditions\n- Excessive incline or decline\n- Uneven surface\n- Rocks",
+  "docstatus": 0,
+  "modified": "2026-09-15 09:00:00.000000"
+ },
+ {
+  "doctype": "ICAM Category",
+  "name": "Individual / Team Actions-Supervision",
+  "icam_level": "Individual / Team Actions",
+  "category": "Supervision",
+  "description": "- Poor or inadequate supervision\n- Supervisor not present\n- Poor supervisory example\n- Field Leadership Activities (e.g. Planned Task Observations (PTO), Critical Task Observations (CTO), Critical Control Verifications (CCV)) not undertaken by supervisor\n- Field Leadership Activities done to satisfy a requirement, rather than to measure knowledge and compliance (\u201ctick-and-flick\u201d).",
+  "docstatus": 0,
+  "modified": "2026-09-15 09:00:00.000000"
+ },
+ {
+  "doctype": "ICAM Category",
+  "name": "Individual / Team Actions-Operating authority",
+  "icam_level": "Individual / Team Actions",
+  "category": "Operating authority",
+  "description": "- Unauthorised operation of plant or equipment\n- Permit to Work not authorised or in place\n- Permit to Work issued by unauthorised person\n- Permit to Work self issued\n- Permit to work issued without personally and physically verifying that team had controlled all risks",
+  "docstatus": 0,
+  "modified": "2026-09-15 09:00:00.000000"
+ },
+ {
+  "doctype": "ICAM Category",
+  "name": "Individual / Team Actions-Operating speed",
+  "icam_level": "Individual / Team Actions",
+  "category": "Operating speed",
+  "description": "- Operating a piece of equipment at a speed other than in its safe operating envelope\n- Speed in excess of approved speed\n- Speed too high for the environmental conditions",
+  "docstatus": 0,
+  "modified": "2026-09-15 09:00:00.000000"
+ },
+ {
+  "doctype": "ICAM Category",
+  "name": "Individual / Team Actions-Equipment use",
+  "icam_level": "Individual / Team Actions",
+  "category": "Equipment use",
+  "description": "- Equipment used incorrectly\n- Wrong tool(s) used for the task\n- Tools modified without approval\n- Poor practices (e.g. using a \u201ccheater bar\u201d as a torque multiplier)",
+  "docstatus": 0,
+  "modified": "2026-09-15 09:00:00.000000"
+ },
+ {
+  "doctype": "ICAM Category",
+  "name": "Individual / Team Actions-Personal protective equipment",
+  "icam_level": "Individual / Team Actions",
+  "category": "Personal protective equipment",
+  "description": "- PPE not worn\n- PPE not available\n- Wrong / unsuitable PPE worn\n- PPE not used correctly\n- User not trained to use PPE",
+  "docstatus": 0,
+  "modified": "2026-09-15 09:00:00.000000"
+ },
+ {
+  "doctype": "ICAM Category",
+  "name": "Individual / Team Actions-Procedural compliance",
+  "icam_level": "Individual / Team Actions",
+  "category": "Procedural compliance",
+  "description": "- Procedure not followed\n- Work method ignored\n- Rules not followed",
+  "docstatus": 0,
+  "modified": "2026-09-15 09:00:00.000000"
+ },
+ {
+  "doctype": "ICAM Category",
+  "name": "Individual / Team Actions-Change management",
+  "icam_level": "Individual / Team Actions",
+  "category": "Change management",
+  "description": "- Change management not followed\n- Changes not communicated\n- Change not recognised",
+  "docstatus": 0,
+  "modified": "2026-09-15 09:00:00.000000"
+ },
+ {
+  "doctype": "ICAM Category",
+  "name": "Individual / Team Actions-Equipment/Material handling",
+  "icam_level": "Individual / Team Actions",
+  "category": "Equipment/Material handling",
+  "description": null,
+  "docstatus": 0,
+  "modified": "2026-09-15 09:00:00.000000"
+ },
+ {
+  "doctype": "ICAM Category",
+  "name": "Individual / Team Actions-Misconduct",
+  "icam_level": "Individual / Team Actions",
+  "category": "Misconduct",
+  "description": "- Wilful violation of procedures or rules\n- Sabotage\n- Assault\n- Horseplay",
+  "docstatus": 0,
+  "modified": "2026-09-15 09:00:00.000000"
+ },
+ {
+  "doctype": "ICAM Category",
+  "name": "Individual / Team Actions-Work method",
+  "icam_level": "Individual / Team Actions",
+  "category": "Work method",
+  "description": "- Poor work method\n- Wrong method chosen",
+  "docstatus": 0,
+  "modified": "2026-09-15 09:00:00.000000"
+ },
+ {
+  "doctype": "ICAM Category",
+  "name": "Individual / Team Actions-Occupational hygiene practices",
+  "icam_level": "Individual / Team Actions",
+  "category": "Occupational hygiene practices",
+  "description": "- Poor personal hygiene\n- Poor hygiene standards followed in workplace\n- Poor hygiene standards accepted by team\n- Improper sampling process",
+  "docstatus": 0,
+  "modified": "2026-09-15 09:00:00.000000"
+ },
+ {
+  "doctype": "ICAM Category",
+  "name": "Individual / Team Actions-Hazard recognition",
+  "icam_level": "Individual / Team Actions",
+  "category": "Hazard recognition",
+  "description": null,
+  "docstatus": 0,
+  "modified": "2026-09-15 09:00:00.000000"
+ },
+ {
+  "doctype": "ICAM Category",
+  "name": "Individual / Team Actions-Risk management",
+  "icam_level": "Individual / Team Actions",
+  "category": "Risk management",
+  "description": "- Risk assessment not complete (including 4STS, JSA, etc.)\n- High risk activity not identified or managed\n- Risk assessments not available\n- Risk assessment process not undertaken by, or involving the work team",
+  "docstatus": 0,
+  "modified": "2026-09-15 09:00:00.000000"
+ },
+ {
+  "doctype": "ICAM Category",
+  "name": "Absent or Failed Defences-Detection systems",
+  "icam_level": "Absent or Failed Defences",
+  "category": "Detection systems",
+  "description": "- Speed Sensors\n- Load cells\n- Smoke detectors\n- Heat sensors\n- Gas Detection Instruments (GDI)\n- Anemometers (wind velocity detectors)\n- Voltage detectors\n- Lightning detectors\n- Proximity Detection System (PDS)\n- In Vehicle Monitoring system (IVMS)\n- Security cameras\n- Sounding of roof and rib-sides",
+  "docstatus": 0,
+  "modified": "2026-09-15 09:00:00.000000"
+ },
+ {
+  "doctype": "ICAM Category",
+  "name": "Absent or Failed Defences-Protection systems",
+  "icam_level": "Absent or Failed Defences",
+  "category": "Protection systems",
+  "description": "- Bunded areas\n- Lockout points\n- Interlocked Guards\n- Roll over protection\n- Fall-on protection\n- Roof bolting\n- Seatbelts\n- Airbags\n- Demarcated drop zones\n- Barring down\n- Battering of the highwall\n- Scaling",
+  "docstatus": 0,
+  "modified": "2026-09-15 09:00:00.000000"
+ },
+ {
+  "doctype": "ICAM Category",
+  "name": "Absent or Failed Defences-Warning systems",
+  "icam_level": "Absent or Failed Defences",
+  "category": "Warning systems",
+  "description": "- Signage\n- Warning lights\n- Traffic Warning Sirens\n- Dummy bars\n- Proximity Detection Systems (PDS)\n- Sirens to indicate remote starts\n- In Vehicle Monitoring system (IVMS)",
+  "docstatus": 0,
+  "modified": "2026-09-15 09:00:00.000000"
+ },
+ {
+  "doctype": "ICAM Category",
+  "name": "Absent or Failed Defences-Guards or barriers",
+  "icam_level": "Absent or Failed Defences",
+  "category": "Guards or barriers",
+  "description": "- Guarding\n- Hand rails\n- Barriers\n- Barricading",
+  "docstatus": 0,
+  "modified": "2026-09-15 09:00:00.000000"
+ },
+ {
+  "doctype": "ICAM Category",
+  "name": "Absent or Failed Defences-Recovery",
+  "icam_level": "Absent or Failed Defences",
+  "category": "Recovery",
+  "description": "- Procedures\n- Recovery equipment (slings, kinetic straps, etc.)",
+  "docstatus": 0,
+  "modified": "2026-09-15 09:00:00.000000"
+ },
+ {
+  "doctype": "ICAM Category",
+  "name": "Absent or Failed Defences-Escape",
+  "icam_level": "Absent or Failed Defences",
+  "category": "Escape",
+  "description": "- Safe Access / Exit\n- Emergency escape routes\n- Rescue bays\n- Rescue lines\n- Sidewall netting in reservoir",
+  "docstatus": 0,
+  "modified": "2026-09-15 09:00:00.000000"
+ },
+ {
+  "doctype": "ICAM Category",
+  "name": "Absent or Failed Defences-Rescue",
+  "icam_level": "Absent or Failed Defences",
+  "category": "Rescue",
+  "description": "- Emergency communication\n- Emergency response time\n- First aid training\n- Fire extinguishers\n- Self-contained Self-Rescuer\n- Rescue lines\n- Rope rescue from height\n- Flotation devices and life rings",
+  "docstatus": 0,
+  "modified": "2026-09-15 09:00:00.000000"
+ },
+ {
+  "doctype": "ICAM Category",
+  "name": "Absent or Failed Defences-Safety device operation",
+  "icam_level": "Absent or Failed Defences",
+  "category": "Safety device operation",
+  "description": "- Safety switches\n- Dead-man\u2019s handles\n- Fail-to-safe switches\n- By-pass valves\n- Load cells\n- Emergency shutdown systems\n- Interlocks",
+  "docstatus": 0,
+  "modified": "2026-09-15 09:00:00.000000"
+ },
+ {
+  "doctype": "ICAM Category",
+  "name": "Absent or Failed Defences-Personal protective equipment",
+  "icam_level": "Absent or Failed Defences",
+  "category": "Personal protective equipment",
+  "description": "- Protective clothing (e.g. flash suits, hard hat, gloves, etc.)\n- Fall arrest equipment\n- Personal isolation locks\n- Gas detection instrument",
+  "docstatus": 0,
+  "modified": "2026-09-15 09:00:00.000000"
+ },
+ {
+  "doctype": "ICAM Category",
+  "name": "Absent or Failed Defences-Hazard identification",
+  "icam_level": "Absent or Failed Defences",
+  "category": "Hazard identification",
+  "description": "- Induction training\n- Ongoing training\n- Informal hazard identification (4 Steps to Safety, SLAM)\n- Failure to recognise the hazard",
+  "docstatus": 0,
+  "modified": "2026-09-15 09:00:00.000000"
+ },
+ {
+  "doctype": "ICAM Category",
+  "name": "Absent or Failed Defences-Control systems",
+  "icam_level": "Absent or Failed Defences",
+  "category": "Control systems",
+  "description": "- Procedures\n- Permit to work\n- Fire response\n- Spill response\n- Work instructions",
+  "docstatus": 0,
+  "modified": "2026-09-15 09:00:00.000000"
+ }
+]

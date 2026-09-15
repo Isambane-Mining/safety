@@ -5,6 +5,7 @@ frappe.ui.form.on("Incident Investigation", {
     refresh(frm) {
         add_create_buttons(frm);
         render_linked_records(frm);
+        setup_peepo_icam_queries(frm);
     },
 
     safety_incident(frm) {
@@ -37,6 +38,35 @@ frappe.ui.form.on("Incident Investigation", {
                 frm.set_value("incident_summary", source.description_of_the_event);
             }
         });
+    },
+});
+
+function setup_peepo_icam_queries(frm) {
+    // PEEPO Factor and ICAM Category are both taxonomies split by a sibling
+    // field on the same row (peepo_category / icam_level) - restrict each
+    // Link's options to the matching branch of the taxonomy.
+    frm.set_query("factor", "peepo_items", (doc, cdt, cdn) => {
+        const row = locals[cdt][cdn];
+        return { filters: { peepo_category: row.peepo_category } };
+    });
+
+    frm.set_query("category", "icam_findings", (doc, cdt, cdn) => {
+        const row = locals[cdt][cdn];
+        return { filters: { icam_level: row.icam_level } };
+    });
+}
+
+frappe.ui.form.on("Incident Investigation PEEPO Item", {
+    peepo_category(frm, cdt, cdn) {
+        // The previously picked Factor may no longer belong to the new category.
+        frappe.model.set_value(cdt, cdn, "factor", null);
+    },
+});
+
+frappe.ui.form.on("Incident Investigation ICAM Finding", {
+    icam_level(frm, cdt, cdn) {
+        // The previously picked Category may no longer belong to the new level.
+        frappe.model.set_value(cdt, cdn, "category", null);
     },
 });
 
