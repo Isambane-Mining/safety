@@ -6,6 +6,7 @@ import re
 import frappe
 from frappe import _
 from frappe.model.document import Document
+from frappe.utils import add_days, nowdate, get_url
 
 
 REVISION_PATTERN = re.compile(r"^(?P<base>.+)-Rev\.(?P<revision>\d+)$")
@@ -197,3 +198,93 @@ class DocumentRegister(Document):
 				max_number = max(max_number, int(last_part))
 
 		return str(max_number + 1).zfill(3)
+
+
+# ------------------------------------------------------------------
+# AUTHOR REVISION REMINDERS
+# ------------------------------------------------------------------
+def send_author_revision_reminders():
+	"""Scheduler entry point (daily). Emails every employee listed as an
+	"Author" on a submitted Document Register's Owners table, once, when the
+	document's Next Revision Date falls within the configured lead window
+	(Safety Settings > Document Register Reminder, default 30 days).
+
+	Each document is only marked as reminded once an email has actually gone
+	out, so a document with no resolvable Author email is retried on later
+	daily runs until it either gets one or its revision date passes.
+	"""
+	days_before = frappe.db.get_single_value(
+		"Safety Settings", "document_register_reminder_days_before"
+	) or 30
+
+	today = nowdate()
+	window_end = add_days(today, days_before)
+
+	names = frappe.get_all(
+		"Document Register",
+		filters={
+			"docstatus": 1,
+			"author_reminder_sent": 0,
+			"revision_date": ["between", [today, window_end]],
+		},
+		pluck="name",
+	)
+
+	for name in names:
+		_send_author_reminder_for_document(name)
+
+
+def _send_author_reminder_for_document(name):
+	doc = frappe.get_doc("Document Register", name)
+
+	authors = [row for row in doc.owners if row.document_role == "Author" and row.employee]
+	if not authors:
+		return
+
+	register_url = get_url(f"/app/document-register/{doc.name}")
+	sent_any = False
+
+	for row in authors:
+		email = _get_employee_email(row.employee)
+		if not email:
+			continue
+
+		message = "<br>".join([
+			f"Dear {frappe.utils.escape_html(row.employee_name or '')},",
+			"",
+			(
+				f"The document \"{frappe.utils.escape_html(doc.document_name or '')}\" "
+				f"({frappe.utils.escape_html(doc.document_no or doc.name)}) is due for revision on "
+				f"{frappe.utils.escape_html(str(doc.revision_date or ''))}."
+			),
+			"",
+			f'<a href="{register_url}">View Document Register</a>',
+		])
+
+		frappe.sendmail(
+			recipients=[email],
+			subject=f"Document Revision Due: {doc.document_no or doc.name}",
+			message=message,
+		)
+		sent_any = True
+
+	if sent_any:
+		frappe.db.set_value("Document Register", doc.name, "author_reminder_sent", 1)
+
+
+def _get_employee_email(employee):
+	emp = frappe.db.get_value(
+		"Employee",
+		employee,
+		["user_id", "prefered_email", "company_email", "personal_email"],
+		as_dict=True,
+	)
+	if not emp:
+		return None
+
+	if emp.user_id:
+		user_email = frappe.db.get_value("User", emp.user_id, "email")
+		if user_email:
+			return user_email
+
+	return emp.prefered_email or emp.company_email or emp.personal_email

@@ -24,9 +24,10 @@
   },
   {
    "fieldname": "category",
-   "fieldtype": "Data",
+   "fieldtype": "Link",
    "in_list_view": 1,
    "label": "Category",
+   "options": "ICAM Category",
    "reqd": 1
   },
   {
@@ -57,7 +58,7 @@
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2026-07-17 15:23:39.597977",
+ "modified": "2026-09-15 09:05:00.000000",
  "modified_by": "Administrator",
  "module": "Safety",
  "name": "Incident Investigation ICAM Finding",

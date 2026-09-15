@@ -1,0 +1,82 @@
+{
+ "actions": [],
+ "autoname": "format:{icam_level}-{category}",
+ "creation": "2026-09-15 09:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "icam_level",
+  "category",
+  "description"
+ ],
+ "fields": [
+  {
+   "fieldname": "icam_level",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "ICAM Level",
+   "options": "Organisational Failings\nTask and Environmental Conditions\nIndividual / Team Actions\nAbsent or Failed Defences",
+   "reqd": 1
+  },
+  {
+   "fieldname": "category",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Category",
+   "reqd": 1
+  },
+  {
+   "description": "Guidance from the ICAM Template's ICAM Chart Appendices on what this category covers.",
+   "fieldname": "description",
+   "fieldtype": "Small Text",
+   "label": "Description"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-09-15 09:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Safety",
+ "name": "ICAM Category",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Safety Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Safety User",
+   "share": 1
+  }
+ ],
+ "sort_field": "creation",
+ "sort_order": "ASC",
+ "title_field": "category",
+ "states": []
+}

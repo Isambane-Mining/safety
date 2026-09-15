@@ -1,0 +1,326 @@
+[
+ {
+  "doctype": "PEEPO Factor",
+  "name": "People-Records",
+  "peepo_category": "People",
+  "factor": "Records",
+  "description": null,
+  "docstatus": 0,
+  "modified": "2026-09-15 09:00:00.000000"
+ },
+ {
+  "doctype": "PEEPO Factor",
+  "name": "People-Roster",
+  "peepo_category": "People",
+  "factor": "Roster",
+  "description": null,
+  "docstatus": 0,
+  "modified": "2026-09-15 09:00:00.000000"
+ },
+ {
+  "doctype": "PEEPO Factor",
+  "name": "People-History",
+  "peepo_category": "People",
+  "factor": "History",
+  "description": null,
+  "docstatus": 0,
+  "modified": "2026-09-15 09:00:00.000000"
+ },
+ {
+  "doctype": "PEEPO Factor",
+  "name": "People-Psychology",
+  "peepo_category": "People",
+  "factor": "Psychology",
+  "description": null,
+  "docstatus": 0,
+  "modified": "2026-09-15 09:00:00.000000"
+ },
+ {
+  "doctype": "PEEPO Factor",
+  "name": "People-Physiology",
+  "peepo_category": "People",
+  "factor": "Physiology",
+  "description": null,
+  "docstatus": 0,
+  "modified": "2026-09-15 09:00:00.000000"
+ },
+ {
+  "doctype": "PEEPO Factor",
+  "name": "People-Ability",
+  "peepo_category": "People",
+  "factor": "Ability",
+  "description": null,
+  "docstatus": 0,
+  "modified": "2026-09-15 09:00:00.000000"
+ },
+ {
+  "doctype": "PEEPO Factor",
+  "name": "People-Supervision",
+  "peepo_category": "People",
+  "factor": "Supervision",
+  "description": null,
+  "docstatus": 0,
+  "modified": "2026-09-15 09:00:00.000000"
+ },
+ {
+  "doctype": "PEEPO Factor",
+  "name": "People-Alertness",
+  "peepo_category": "People",
+  "factor": "Alertness",
+  "description": null,
+  "docstatus": 0,
+  "modified": "2026-09-15 09:00:00.000000"
+ },
+ {
+  "doctype": "PEEPO Factor",
+  "name": "People-Communication",
+  "peepo_category": "People",
+  "factor": "Communication",
+  "description": null,
+  "docstatus": 0,
+  "modified": "2026-09-15 09:00:00.000000"
+ },
+ {
+  "doctype": "PEEPO Factor",
+  "name": "People-Teamwork",
+  "peepo_category": "People",
+  "factor": "Teamwork",
+  "description": null,
+  "docstatus": 0,
+  "modified": "2026-09-15 09:00:00.000000"
+ },
+ {
+  "doctype": "PEEPO Factor",
+  "name": "Environment-Illumination",
+  "peepo_category": "Environment",
+  "factor": "Illumination",
+  "description": "Too much or too little light that was a negative influence on vision.",
+  "docstatus": 0,
+  "modified": "2026-09-15 09:00:00.000000"
+ },
+ {
+  "doctype": "PEEPO Factor",
+  "name": "Environment-Weather / wind / turbulence",
+  "peepo_category": "Environment",
+  "factor": "Weather / wind / turbulence",
+  "description": "Assessment of the weather - consider condensation, fog, frost, hail, ice, mist rain, sleet, snow, excessive wind/ gusts.",
+  "docstatus": 0,
+  "modified": "2026-09-15 09:00:00.000000"
+ },
+ {
+  "doctype": "PEEPO Factor",
+  "name": "Environment-Temperature / humidity",
+  "peepo_category": "Environment",
+  "factor": "Temperature / humidity",
+  "description": "Extreme of heat, cold, and humidity that may have a negative influence on human or equipment performance.",
+  "docstatus": 0,
+  "modified": "2026-09-15 09:00:00.000000"
+ },
+ {
+  "doctype": "PEEPO Factor",
+  "name": "Environment-Contaminants",
+  "peepo_category": "Environment",
+  "factor": "Contaminants",
+  "description": "Consider if any contaminants were present, e.g. carbon dioxide, carbon monoxide, chemicals, dust, foreign objects, debris, mists, smog, smoke, toxic materials, or vapours",
+  "docstatus": 0,
+  "modified": "2026-09-15 09:00:00.000000"
+ },
+ {
+  "doctype": "PEEPO Factor",
+  "name": "Environment-Noise",
+  "peepo_category": "Environment",
+  "factor": "Noise",
+  "description": "Was there excessive noise? Did it interfere with communication?",
+  "docstatus": 0,
+  "modified": "2026-09-15 09:00:00.000000"
+ },
+ {
+  "doctype": "PEEPO Factor",
+  "name": "Environment-Vibration",
+  "peepo_category": "Environment",
+  "factor": "Vibration",
+  "description": "Assessment of vibration in the area.",
+  "docstatus": 0,
+  "modified": "2026-09-15 09:00:00.000000"
+ },
+ {
+  "doctype": "PEEPO Factor",
+  "name": "Environment-Acceleration / deceleration",
+  "peepo_category": "Environment",
+  "factor": "Acceleration / deceleration",
+  "description": "Consider acceleration experienced by personnel/equipment",
+  "docstatus": 0,
+  "modified": "2026-09-15 09:00:00.000000"
+ },
+ {
+  "doctype": "PEEPO Factor",
+  "name": "Environment-Radiation",
+  "peepo_category": "Environment",
+  "factor": "Radiation",
+  "description": "Radiant energy emitted in waves or particles that may have negative influence on human or equipment performance. This includes assessment of any potential radiation sources e.g. ionizing, laser, non-ionizing, radio waves, sunlight, ultraviolet, or X radiation.",
+  "docstatus": 0,
+  "modified": "2026-09-15 09:00:00.000000"
+ },
+ {
+  "doctype": "PEEPO Factor",
+  "name": "Environment-Work surface/space",
+  "peepo_category": "Environment",
+  "factor": "Work surface/space",
+  "description": "Conditions of the work surfaces on which personnel and equipment operate that may have a negative influence on performance. This includes holes, inclines, rocky, rough, rutted, slippery, steep or uneven wave action",
+  "docstatus": 0,
+  "modified": "2026-09-15 09:00:00.000000"
+ },
+ {
+  "doctype": "PEEPO Factor",
+  "name": "Environment-Electricity",
+  "peepo_category": "Environment",
+  "factor": "Electricity",
+  "description": "Assessment of any potential electrical energy sources that may have played a role in the incident.",
+  "docstatus": 0,
+  "modified": "2026-09-15 09:00:00.000000"
+ },
+ {
+  "doctype": "PEEPO Factor",
+  "name": "Environment-Air pressure",
+  "peepo_category": "Environment",
+  "factor": "Air pressure",
+  "description": "Assessment of any sudden or gradual changes in air pressure that may have had a negative influence on human or equipment performance.",
+  "docstatus": 0,
+  "modified": "2026-09-15 09:00:00.000000"
+ },
+ {
+  "doctype": "PEEPO Factor",
+  "name": "Environment-Wildlife",
+  "peepo_category": "Environment",
+  "factor": "Wildlife",
+  "description": "The actions or presence of animals that injure personnel, cause personnel to make errors,  damage equipment, or cause equipment to malfunction",
+  "docstatus": 0,
+  "modified": "2026-09-15 09:00:00.000000"
+ },
+ {
+  "doctype": "PEEPO Factor",
+  "name": "Equipment-Design",
+  "peepo_category": "Equipment",
+  "factor": "Design",
+  "description": "The design of the equipment should be adequate to meet the requirements and operational conditions under which they were being used.",
+  "docstatus": 0,
+  "modified": "2026-09-15 09:00:00.000000"
+ },
+ {
+  "doctype": "PEEPO Factor",
+  "name": "Equipment-Construction",
+  "peepo_category": "Equipment",
+  "factor": "Construction",
+  "description": "The equipment should be constructed to specifications within the design standard.",
+  "docstatus": 0,
+  "modified": "2026-09-15 09:00:00.000000"
+ },
+ {
+  "doctype": "PEEPO Factor",
+  "name": "Equipment-Testing",
+  "peepo_category": "Equipment",
+  "factor": "Testing",
+  "description": "The equipment should be tested to ensure that it meets the design standard and construction specifications.",
+  "docstatus": 0,
+  "modified": "2026-09-15 09:00:00.000000"
+ },
+ {
+  "doctype": "PEEPO Factor",
+  "name": "Equipment-Inspection",
+  "peepo_category": "Equipment",
+  "factor": "Inspection",
+  "description": "There should be an inspection procedure for monitoring the status of the equipment on:\nInitial Delivery\nPeriodically through out its life at critical times before, during and after operation",
+  "docstatus": 0,
+  "modified": "2026-09-15 09:00:00.000000"
+ },
+ {
+  "doctype": "PEEPO Factor",
+  "name": "Equipment-Maintenance",
+  "peepo_category": "Equipment",
+  "factor": "Maintenance",
+  "description": "The equipment should be maintained to the manufacturer's specifications to maintained the original design performance safety and reliability standards.",
+  "docstatus": 0,
+  "modified": "2026-09-15 09:00:00.000000"
+ },
+ {
+  "doctype": "PEEPO Factor",
+  "name": "Equipment-Modification / Management of Change",
+  "peepo_category": "Equipment",
+  "factor": "Modification / Management of Change",
+  "description": "Equipment modification should be carried out under a \"management of change\" process to ensure performance, safety and reliability are not adversely affected.\nModifications should also account for changes to:\n- maintenance procedures,\n- inspection procedures,\n- ergonomics,\n- man-machine interface.",
+  "docstatus": 0,
+  "modified": "2026-09-15 09:00:00.000000"
+ },
+ {
+  "doctype": "PEEPO Factor",
+  "name": "Procedures-Utilization",
+  "peepo_category": "Procedures",
+  "factor": "Utilization",
+  "description": "Documented procedures should be used for conducting the operation in a correct, safe and efficient manner.",
+  "docstatus": 0,
+  "modified": "2026-09-15 09:00:00.000000"
+ },
+ {
+  "doctype": "PEEPO Factor",
+  "name": "Procedures-Content",
+  "peepo_category": "Procedures",
+  "factor": "Content",
+  "description": "The documented procedures should be adequate for the scope of the work to be conducted. The procedure should:\n- cover all tasks\n- be tactically correct correct\n- contain emergency provisions\n- contain work-around provisons\n- cover exemptions where the entire procedure does not apply.",
+  "docstatus": 0,
+  "modified": "2026-09-15 09:00:00.000000"
+ },
+ {
+  "doctype": "PEEPO Factor",
+  "name": "Procedures-Criteria",
+  "peepo_category": "Procedures",
+  "factor": "Criteria",
+  "description": "The procedures should contain the necessary information in a user friendly language. The format should successfully link people and equipment to provide a risk minimised or risk eliminated operation.",
+  "docstatus": 0,
+  "modified": "2026-09-15 09:00:00.000000"
+ },
+ {
+  "doctype": "PEEPO Factor",
+  "name": "Procedures-Validated",
+  "peepo_category": "Procedures",
+  "factor": "Validated",
+  "description": "The procedures should be reviewed, checked and tested by qualified people to ensure that the personnel that use the procedure can carry out the operation correctly, safely, efficiently, and with minimal environmental impact.",
+  "docstatus": 0,
+  "modified": "2026-09-15 09:00:00.000000"
+ },
+ {
+  "doctype": "PEEPO Factor",
+  "name": "Organisation-Organisational Culture",
+  "peepo_category": "Organisation",
+  "factor": "Organisational Culture",
+  "description": "The organisation should have a systematic approach to safety. There should be evidence of management leadership and commitment to setting high standards of HSEC, quality and productivity performance.\nMeasurable factors include:\n- organisational structure,\n- people management,\n- provision and quality of tools and equipment,\n- commercial and operational perssures,\n- planning, \n- maintenance of facilities and equipment,\n- communication.",
+  "docstatus": 0,
+  "modified": "2026-09-15 09:00:00.000000"
+ },
+ {
+  "doctype": "PEEPO Factor",
+  "name": "Organisation-Training programme",
+  "peepo_category": "Organisation",
+  "factor": "Training programme",
+  "description": "The organisation should have a structured training programme for the provison and consolidation of technical skills, safety awareness and safety knowledge. The effectiveness of training should be measurable.",
+  "docstatus": 0,
+  "modified": "2026-09-15 09:00:00.000000"
+ },
+ {
+  "doctype": "PEEPO Factor",
+  "name": "Organisation-Visible support",
+  "peepo_category": "Organisation",
+  "factor": "Visible support",
+  "description": "The organisation should demonstrate support for the work site operational staff including provision of adequate manning levels, suitable equipment and material and adequate facilities and services.",
+  "docstatus": 0,
+  "modified": "2026-09-15 09:00:00.000000"
+ },
+ {
+  "doctype": "PEEPO Factor",
+  "name": "Organisation-Operational feedback processes",
+  "peepo_category": "Organisation",
+  "factor": "Operational feedback processes",
+  "description": "The organisation should have a formal and effective operational feedback system for monitoring and improvement.",
+  "docstatus": 0,
+  "modified": "2026-09-15 09:00:00.000000"
+ }
+]

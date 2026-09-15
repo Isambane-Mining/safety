@@ -1,6 +1,9 @@
 import frappe
+from frappe import _
 from frappe.model.document import Document
 from frappe.utils import get_url, now
+
+from safety.controllers.recipients import get_notification_recipients
 
 
 class FlashReports(Document):
@@ -338,14 +341,34 @@ def build_flash_html(data):
 @frappe.whitelist()
 def send_flash_report(name):
     doc = frappe.get_doc("Flash Reports", name)
+    frappe.has_permission("Flash Reports", "write", doc=doc, throw=True)
 
     if doc.flash_sent:
-        frappe.throw("Flash Report has already been sent.")
+        frappe.throw(_("Flash Report has already been sent."))
+
+    recipients = get_notification_recipients("Flash Report")
+    recipients = [
+        recipient for recipient in recipients
+        if recipient["branches"] is None or doc.site in recipient["branches"]
+    ]
+
+    if not recipients:
+        frappe.throw(
+            _(
+                "No Flash Report recipients are configured for this record's branch. "
+                "Add them under Safety Settings > Notification Recipients."
+            )
+        )
+
+    # Built server-side from the doc's own fields rather than a client-only
+    # preview, so the email is correct even if the on-screen preview was
+    # never (re)generated in this session.
+    message = build_flash_html(doc.as_dict())
 
     frappe.sendmail(
-        recipients=["hse@isambane.co.za", "site.manager@isambane.co.za"],
+        recipients=[recipient["email"] for recipient in recipients],
         subject=f"FLASH REPORT – Incident {doc.incident_number}",
-        message=doc.flash,
+        message=message,
         now=True
     )
 

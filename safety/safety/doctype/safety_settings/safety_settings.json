@@ -1,0 +1,70 @@
+{
+ "actions": [],
+ "creation": "2026-09-14 15:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "notification_recipients_section",
+  "notification_recipients",
+  "document_register_section",
+  "document_register_reminder_days_before"
+ ],
+ "fields": [
+  {
+   "fieldname": "notification_recipients_section",
+   "fieldtype": "Section Break",
+   "label": "Notification Recipients"
+  },
+  {
+   "description": "Who receives each weekly/ad-hoc Safety notification. Rows with no Branch receive every record (the global report); rows with a Branch only receive records for that branch.",
+   "fieldname": "notification_recipients",
+   "fieldtype": "Table",
+   "label": "Notification Recipients",
+   "options": "Safety Notification Recipient"
+  },
+  {
+   "fieldname": "document_register_section",
+   "fieldtype": "Section Break",
+   "label": "Document Register"
+  },
+  {
+   "default": "30",
+   "description": "Employees listed as Author on a Document Register's Owners table are emailed once, this many days before the document's Next Revision Date.",
+   "fieldname": "document_register_reminder_days_before",
+   "fieldtype": "Int",
+   "label": "Remind Authors (Days Before Revision Date)",
+   "non_negative": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "issingle": 1,
+ "links": [],
+ "modified": "2026-09-14 15:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Safety",
+ "name": "Safety Settings",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "Safety Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": []
+}

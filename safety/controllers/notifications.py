@@ -4,8 +4,7 @@
 import frappe
 from frappe.utils import add_days, get_url, nowdate
 
-
-SAFETY_MANAGER_ROLE = "Safety Manager"
+from safety.controllers.recipients import filter_rows_for_recipient, get_notification_recipients
 
 
 def send_weekly_ppe_expired_notifications():
@@ -43,7 +42,7 @@ def send_weekly_ppe_expired_notifications():
 
 	subject = "Weekly PPE expiry notification: Expired PPE items"
 	intro = "The following PPE items have already expired."
-	_send_ppe_notification(rows, subject, intro)
+	_send_ppe_notification(rows, subject, intro, notification_type="PPE Expired")
 
 
 def send_weekly_ppe_expiring_soon_notifications():
@@ -83,11 +82,11 @@ def send_weekly_ppe_expiring_soon_notifications():
 
 	subject = "Weekly PPE expiry notification: PPE items expiring in the next 30 days"
 	intro = "The following PPE items will expire within the next 30 days."
-	_send_ppe_notification(rows, subject, intro)
+	_send_ppe_notification(rows, subject, intro, notification_type="PPE Expiring Soon")
 
 
-def _send_ppe_notification(rows, subject, intro):
-	recipients, name_by_email = _get_safety_manager_recipients()
+def _send_ppe_notification(rows, subject, intro, notification_type):
+	recipients = get_notification_recipients(notification_type)
 	if not recipients:
 		return
 
@@ -98,6 +97,29 @@ def _send_ppe_notification(rows, subject, intro):
 				f"/app/ppe-issue-register/{row['register_name']}"
 			)
 
+	for recipient in recipients:
+		recipient_rows = filter_rows_for_recipient(rows, "branch", recipient)
+		if not recipient_rows:
+			continue
+
+		table_html = _build_ppe_table(recipient_rows, register_links)
+
+		message = "<br>".join([
+			f"Dear {frappe.utils.escape_html(recipient['full_name'])},",
+			"",
+			intro,
+			"",
+			table_html,
+		])
+
+		frappe.sendmail(
+			recipients=[recipient["email"]],
+			subject=subject,
+			message=message,
+		)
+
+
+def _build_ppe_table(rows, register_links):
 	table_rows = []
 	for row in rows:
 		register_url = register_links[row["register_name"]]
@@ -117,7 +139,7 @@ def _send_ppe_notification(rows, subject, intro):
 			"""
 		)
 
-	table_html = f"""
+	return f"""
 		<table border="1" cellpadding="6" cellspacing="0" style="border-collapse: collapse; width: 100%;">
 			<thead>
 				<tr>
@@ -136,57 +158,3 @@ def _send_ppe_notification(rows, subject, intro):
 			</tbody>
 		</table>
 	"""
-
-	for email in recipients:
-		full_name = name_by_email.get(email) or "Safety Manager"
-
-		message = "<br>".join([
-			f"Dear {frappe.utils.escape_html(full_name)},",
-			"",
-			intro,
-			"",
-			table_html,
-		])
-
-		frappe.sendmail(
-			recipients=[email],
-			subject=subject,
-			message=message,
-		)
-
-
-def _get_safety_manager_recipients():
-	recipients = []
-	name_by_email = {}
-
-	user_names = frappe.get_all(
-		"Has Role",
-		filters={
-			"role": SAFETY_MANAGER_ROLE,
-			"parenttype": "User",
-		},
-		pluck="parent"
-	)
-
-	if not user_names:
-		return [], {}
-
-	user_docs = frappe.get_all(
-		"User",
-		filters={
-			"name": ["in", user_names],
-			"enabled": 1,
-		},
-		fields=["name", "email", "full_name"]
-	)
-
-	for user in user_docs:
-		email = user.get("email")
-		if not email:
-			continue
-
-		if email not in recipients:
-			recipients.append(email)
-			name_by_email[email] = user.get("full_name") or user.get("name")
-
-	return recipients, name_by_email

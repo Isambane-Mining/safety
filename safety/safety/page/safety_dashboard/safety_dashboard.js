@@ -11,6 +11,11 @@ frappe.pages["safety-dashboard"].on_page_load = function (wrapper) {
   root.className = "isd-wrap";
   page.main[0].appendChild(root);
 
+  let lastData = null;
+
+  page.add_inner_button(__("Export PNG"), () => export_png(root), __("Export"));
+  page.add_inner_button(__("Export Excel"), () => export_excel(), __("Export"));
+
   // ---------------------------
   // On-the-hour refresh helpers
   // ---------------------------
@@ -53,6 +58,7 @@ frappe.pages["safety-dashboard"].on_page_load = function (wrapper) {
     });
 
     const payload = r.message || {};
+    lastData = payload;
     const rows = payload.rows || {};
     const complexBySite = payload.complex_by_site || {};
     const colorBySite = payload.color_by_site || {};
@@ -146,9 +152,8 @@ function render_company_card(row, companyColor) {
   const card = document.createElement("div");
   card.className = "isd-card isd-company";
 
-  // company colour from Site Start Dates.company_colour (fallback to red if missing/invalid)
-  if (companyColor && is_valid_hex(companyColor)) card.style.background = companyColor;
-  else card.style.background = "#FF0000";
+  const accent = (companyColor && is_valid_hex(companyColor)) ? companyColor : "#ef4444";
+  card.style.borderTopColor = accent;
 
   const ltifrTarget = row?.ltifr_target ?? "";
   const ltifrActual = (row?.ltifr ?? "—");
@@ -176,8 +181,8 @@ function render_site_card(site, row, siteColor) {
   const card = document.createElement("div");
   card.className = "isd-card";
 
-  if (siteColor && is_valid_hex(siteColor)) card.style.background = siteColor;
-  else card.style.background = "#4f86c6";
+  const accent = (siteColor && is_valid_hex(siteColor)) ? siteColor : "#3b82f6";
+  card.style.borderTopColor = accent;
 
   const ltifrTarget = row?.ltifr_target ?? "";
   const ltifrActual = (row?.ltifr ?? "—");
@@ -201,25 +206,36 @@ function render_site_card(site, row, siteColor) {
   return card;
 }
 
+function ltifr_tone(target, actual) {
+  const t = Number(target);
+  const a = Number(actual);
+  if (!Number.isFinite(t) || !Number.isFinite(a) || target === "" || actual === "" || actual === "—") {
+    return "isd-kpi--neutral";
+  }
+  return a <= t ? "isd-kpi--good" : "isd-kpi--bad";
+}
+
 function build_card_html(siteName, ltifrTarget, ltifrActual, scratchFree, ltiFree, mtcFree, facFree, pdiFree) {
+  const actualTone = ltifr_tone(ltifrTarget, ltifrActual);
+
   return `
     <div class="isd-card-inner">
 
       <div class="isd-sitebar">
-        <div class="isd-site-pill">Site</div>
+        <div class="isd-eyebrow">Site</div>
         <div class="isd-site-name">${frappe.utils.escape_html(siteName)}</div>
       </div>
 
       <div class="isd-kpi-row">
-        <div class="isd-kpi">
+        <div class="isd-kpi isd-kpi--neutral">
           <div class="isd-kpi-label">LTIFR Target</div>
           <div class="isd-kpi-val">${ltifrTarget}</div>
         </div>
-        <div class="isd-kpi">
+        <div class="isd-kpi ${actualTone}">
           <div class="isd-kpi-label">LTIFR Actual</div>
           <div class="isd-kpi-val">${ltifrActual}</div>
         </div>
-        <div class="isd-kpi">
+        <div class="isd-kpi isd-kpi--neutral">
           <div class="isd-kpi-label">Scratch Free Days</div>
           <div class="isd-kpi-val">${scratchFree}</div>
         </div>
@@ -228,19 +244,19 @@ function build_card_html(siteName, ltifrTarget, ltifrActual, scratchFree, ltiFre
       <div class="isd-safe-title">Safe Days</div>
 
       <div class="isd-safe-row">
-        <div class="isd-safe-col">
+        <div class="isd-safe-tile">
           <div class="isd-safe-h">LTI</div>
           <div class="isd-safe-v">${ltiFree}</div>
         </div>
-        <div class="isd-safe-col">
+        <div class="isd-safe-tile">
           <div class="isd-safe-h">MTC</div>
           <div class="isd-safe-v">${mtcFree}</div>
         </div>
-        <div class="isd-safe-col">
+        <div class="isd-safe-tile">
           <div class="isd-safe-h">FA</div>
           <div class="isd-safe-v">${facFree}</div>
         </div>
-        <div class="isd-safe-col">
+        <div class="isd-safe-tile">
           <div class="isd-safe-h">Property Damage - TMM</div>
           <div class="isd-safe-v">${pdiFree}</div>
         </div>
@@ -256,108 +272,159 @@ function is_valid_hex(s) {
 
 
 // ---------------------------
+// PNG export (html2canvas)
+// ---------------------------
+async function ensure_html2canvas() {
+  if (window.html2canvas) {
+    return;
+  }
+
+  await frappe.require("/assets/safety/js/vendor/html2canvas.min.js");
+
+  if (!window.html2canvas) {
+    throw new Error(__("html2canvas could not be loaded."));
+  }
+}
+
+async function export_png(root) {
+  if (!root || !root.children.length) {
+    frappe.msgprint(__("Wait for the dashboard to finish loading before exporting."));
+    return;
+  }
+
+  // .isd-wrap paints its own opaque page background (var(--isd-page-bg)) for
+  // the on-screen view - html2canvas's backgroundColor:null option only
+  // controls the canvas's own base fill, it doesn't override a background
+  // the captured element itself sets. So the page background is dropped for
+  // the duration of the capture only, then restored.
+  const previousBackground = root.style.background;
+  root.style.background = "transparent";
+
+  try {
+    await ensure_html2canvas();
+    const canvas = await window.html2canvas(root, {
+      backgroundColor: null,
+      scale: 2,
+      useCORS: true,
+      logging: false,
+    });
+    const blob = await new Promise((resolve, reject) => {
+      canvas.toBlob((b) => (b ? resolve(b) : reject(new Error(__("PNG creation failed.")))), "image/png");
+    });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = `Safety-Dashboard-${frappe.datetime.now_date()}.png`;
+    document.body.appendChild(link);
+    link.click();
+    link.remove();
+    URL.revokeObjectURL(url);
+  } catch (error) {
+    frappe.msgprint({ title: __("Export failed"), message: error.message, indicator: "red" });
+  } finally {
+    root.style.background = previousBackground;
+  }
+}
+
+
+// ---------------------------
+// Excel export
+// ---------------------------
+function export_excel() {
+  window.open(
+    "/api/method/safety.safety.page.safety_dashboard.safety_dashboard.download_snapshot_xlsx",
+    "_blank"
+  );
+}
+
+
+// ---------------------------
 // CSS Injection
 // ---------------------------
 function inject_css(wrapper) {
   const style = document.createElement("style");
   style.textContent = `
     :root{
-      --isd-inner: #F5F2F2;
-      --isd-white: #ffffff;
-      --isd-ink: #0f172a;
-      --isd-border: #0b0b0b;
-      --isd-border-w: 1px;
-      --isd-radius: 6px;
+      --isd-page-bg: #f5f2f2;
+      --isd-ink: #172033;
+      --isd-muted: #64748b;
+      --isd-border: #d7dee8;
+      --isd-tile-bg: #f8fafc;
+      --isd-radius: 10px;
     }
 
-    /* Slight font bump (+~1px) but safe (no overflow) */
     .isd-wrap, .isd-wrap * {
       font-family: "Segoe UI", Inter, Roboto, Arial, system-ui, -apple-system;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
       text-rendering: geometricPrecision;
+      box-sizing: border-box;
     }
 
-    .isd-wrap { padding: 12px; }
+    .isd-wrap { padding: 16px; background: var(--isd-page-bg); }
 
     .isd-loading { padding: 12px; font-weight: 700; text-align: center; color: var(--isd-ink); font-size: 13px; }
 
-    .isd-top { display: flex; justify-content: center; margin-bottom: 10px; }
+    .isd-top { display: flex; justify-content: center; margin-bottom: 12px; }
 
     .isd-grid-2 {
       display: grid;
-      grid-template-columns: 1fr 14px 1fr;
-      gap: 12px;
+      grid-template-columns: 1fr 1px 1fr;
+      gap: 14px;
       align-items: start;
     }
     .isd-grid-2.isd-no-divider { grid-template-columns: 1fr; }
     .isd-grid-2.isd-no-divider .isd-divider { display: none; }
 
-    .isd-divider { width: 1px; background: #7a8791; height: 100%; margin: 0 auto; opacity: 0.7; }
+    .isd-divider { width: 1px; background: var(--isd-border); height: 100%; margin: 0 auto; }
 
-    .isd-col { display: grid; gap: 12px; }
+    .isd-col { display: grid; gap: 14px; }
 
     .isd-heading {
       text-align: center;
-      font-weight: 900;
-      letter-spacing: .6px;
-      color: var(--isd-ink);
-      margin: 4px 0 0;
-      font-size: 14px;
+      font-weight: 800;
+      letter-spacing: .08em;
+      color: var(--isd-muted);
+      margin: 4px 0 -2px;
+      font-size: 12px;
+      text-transform: uppercase;
     }
 
     .isd-card {
-      border: var(--isd-border-w) solid var(--isd-border);
-      padding: 8px;
+      background: #ffffff;
+      border: 1px solid var(--isd-border);
+      border-top: 4px solid #3b82f6;
+      padding: 12px;
       border-radius: var(--isd-radius);
+      box-shadow: 0 1px 2px rgba(23, 32, 51, 0.06);
     }
+
+    .isd-card.isd-company { border-top-width: 6px; }
 
     .isd-card, .isd-card * { text-align: center; }
 
-    .isd-card-inner { display: grid; gap: 6px; }
+    .isd-card-inner { display: grid; gap: 8px; }
 
-    .isd-sitebar{
-      display: grid;
-      grid-template-columns: 56px 1fr;
-      gap: 8px;
-      align-items: center;
-      min-width: 0;
-    }
+    .isd-sitebar { display: grid; gap: 2px; }
 
-    .isd-site-pill{
-      background: var(--isd-inner);
-      border: var(--isd-border-w) solid var(--isd-border);
-      border-radius: 4px;
-      padding: 3px 8px;
+    .isd-eyebrow {
+      font-size: 10px;
       font-weight: 800;
-      font-size: 12px;
-      min-height: 26px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-sizing: border-box;
-      min-width: 0;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--isd-muted);
     }
 
     .isd-site-name{
-      width: 100%;
-      background: var(--isd-inner);
-      border: var(--isd-border-w) solid var(--isd-border);
-      border-radius: 4px;
-      padding: 3px 10px;
-      font-weight: 900;
-      font-size: 13px;
-      min-height: 26px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-sizing: border-box;
-
-      min-width: 0;
+      font-weight: 800;
+      font-size: 16px;
+      color: var(--isd-ink);
       overflow: hidden;
       text-overflow: ellipsis;
       white-space: nowrap;
     }
+
+    .isd-company .isd-site-name { font-size: 19px; }
 
     .isd-kpi-row {
       display: grid;
@@ -367,20 +434,25 @@ function inject_css(wrapper) {
     }
 
     .isd-kpi {
-      background: var(--isd-inner);
-      border: var(--isd-border-w) solid var(--isd-border);
-      padding: 5px 6px;
-      border-radius: 4px;
-      box-sizing: border-box;
-      min-width: 0;
+      background: var(--isd-tile-bg);
+      border: 1px solid var(--isd-border);
+      border-top: 3px solid #3b82f6;
+      padding: 7px 6px;
+      border-radius: 8px;
       overflow: hidden;
     }
 
+    .isd-kpi--neutral { border-top-color: #3b82f6; }
+    .isd-kpi--good { border-top-color: #22c55e; }
+    .isd-kpi--bad { border-top-color: #ef4444; }
+
     .isd-kpi-label {
-      font-size: 12px;
+      font-size: 10px;
       font-weight: 800;
-      color: var(--isd-ink);
-      margin-bottom: 3px;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+      color: var(--isd-muted);
+      margin-bottom: 4px;
       line-height: 1.15;
       white-space: nowrap;
       overflow: hidden;
@@ -388,89 +460,54 @@ function inject_css(wrapper) {
     }
 
     .isd-kpi-val {
-      font-size: 13px;
-      font-weight: 900;
+      font-size: 17px;
+      font-weight: 800;
       color: var(--isd-ink);
-      background: var(--isd-white);
-      border: var(--isd-border-w) solid var(--isd-border);
-      padding: 3px 6px;
-      border-radius: 4px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 22px;
-      box-sizing: border-box;
-      width: 100%;
     }
 
     .isd-safe-title {
       width: fit-content;
-      margin: 0 auto;
-      font-size: 12px;
-      font-weight: 900;
-      color: var(--isd-ink);
-      background: var(--isd-inner);
-      border: var(--isd-border-w) solid var(--isd-border);
-      padding: 3px 12px;
-      border-radius: 4px;
-      box-sizing: border-box;
-      max-width: 100%;
+      margin: 2px auto 0;
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--isd-muted);
     }
 
     .isd-safe-row {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      border: var(--isd-border-w) solid var(--isd-border);
-      border-radius: 4px;
-      overflow: hidden;
-      background: var(--isd-inner);
-      margin: 0;
-      box-sizing: border-box;
+      gap: 6px;
     }
 
-    .isd-safe-col {
-      border-right: var(--isd-border-w) solid var(--isd-border);
+    .isd-safe-tile {
+      background: var(--isd-tile-bg);
+      border: 1px solid var(--isd-border);
+      border-radius: 8px;
+      padding: 6px 4px;
       min-width: 0;
     }
-    .isd-safe-col:last-child { border-right: none; }
 
     .isd-safe-h {
-      font-size: 12px;
-      font-weight: 900;
-      padding: 6px 4px;
-      color: var(--isd-ink);
-      background: var(--isd-inner);
-
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      box-sizing: border-box;
-
+      font-size: 10px;
+      font-weight: 700;
+      color: var(--isd-muted);
       white-space: normal;
       word-break: break-word;
       overflow-wrap: anywhere;
-      hyphens: auto;
-      line-height: 1.12;
-      min-height: 30px;
+      line-height: 1.15;
+      min-height: 26px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
     .isd-safe-v {
-      font-size: 13px;
-      font-weight: 900;
-      padding: 6px 4px;
+      font-size: 15px;
+      font-weight: 800;
       color: var(--isd-ink);
-      background: var(--isd-white);
-      border-top: var(--isd-border-w) solid var(--isd-border);
-
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      box-sizing: border-box;
-
-      min-width: 0;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
+      margin-top: 2px;
     }
 
     @media (max-width: 1200px) {
@@ -478,10 +515,6 @@ function inject_css(wrapper) {
       .isd-divider { display: none; }
       .isd-kpi-row { grid-template-columns: 1fr; }
       .isd-safe-row { grid-template-columns: 1fr; }
-      .isd-safe-col { border-right: none; border-bottom: var(--isd-border-w) solid var(--isd-border); }
-      .isd-safe-col:last-child { border-bottom: none; }
-      .isd-sitebar { grid-template-columns: 1fr; }
-      .isd-site-name { white-space: normal; }
     }
   `;
   wrapper.appendChild(style);

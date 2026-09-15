@@ -44,7 +44,9 @@ fixtures = [
     {"dt": "Document Register Class", "filters": [["name", "in", [
 		"Policy",
 		"Procedure"
-	]]]}
+	]]]},
+	{"dt": "PEEPO Factor"},
+	{"dt": "ICAM Category"}
 ]
 
 doctype_js = {
@@ -57,6 +59,9 @@ scheduler_events = {
             "safety.safety.doctype.safety_performance_communication.safety_performance_communication.generate_weekly_safety_performance_communications"
         ]
     },
+    "daily": [
+		"safety.safety.doctype.document_register.document_register.send_author_revision_reminders",
+	],
     "weekly": [
 		"safety.controllers.notifications.send_weekly_ppe_expired_notifications",
 		"safety.controllers.notifications.send_weekly_ppe_expiring_soon_notifications",

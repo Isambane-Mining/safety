@@ -204,10 +204,20 @@
    "hidden": 0,
    "is_query_report": 0,
    "label": "Setup",
-   "link_count": 11,
+   "link_count": 12,
    "link_type": "DocType",
    "onboard": 0,
    "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Safety Settings",
+   "link_count": 0,
+   "link_to": "Safety Settings",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
   },
   {
    "hidden": 0,
@@ -398,7 +408,7 @@
    "type": "Link"
   }
  ],
- "modified": "2026-08-21 14:32:46.067492",
+ "modified": "2026-09-14 14:59:48.681343",
  "modified_by": "Administrator",
  "module": "Safety",
  "name": "Safety",
