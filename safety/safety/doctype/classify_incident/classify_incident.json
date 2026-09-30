@@ -1,5 +1,6 @@
 {
  "actions": [],
+ "allow_bulk_edit": 1,
  "allow_rename": 1,
  "autoname": "format: {define_incident}",
  "creation": "2026-03-10 12:59:22.397649",
@@ -24,7 +25,7 @@
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2026-04-17 09:17:30.018918",
+ "modified": "2026-09-30 11:41:52.225845",
  "modified_by": "Administrator",
  "module": "Safety",
  "name": "Classify Incident",
@@ -63,17 +64,6 @@
    "read": 1,
    "report": 1,
    "role": "Safety User",
-   "share": 1,
-   "write": 1
-  },
-  {
-   "create": 1,
-   "email": 1,
-   "export": 1,
-   "print": 1,
-   "read": 1,
-   "report": 1,
-   "role": "All",
    "share": 1,
    "write": 1
   }

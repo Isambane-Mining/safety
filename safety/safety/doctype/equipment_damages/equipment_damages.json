@@ -1,5 +1,6 @@
 {
  "actions": [],
+ "allow_bulk_edit": 1,
  "allow_rename": 1,
  "autoname": "format: {specify_type_of_damage}",
  "creation": "2026-03-10 13:34:59.296217",
@@ -18,7 +19,7 @@
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2026-04-17 09:19:44.079920",
+ "modified": "2026-09-30 11:41:27.238806",
  "modified_by": "Administrator",
  "module": "Safety",
  "name": "Equipment Damages",
@@ -57,17 +58,6 @@
    "read": 1,
    "report": 1,
    "role": "Safety User",
-   "share": 1,
-   "write": 1
-  },
-  {
-   "create": 1,
-   "email": 1,
-   "export": 1,
-   "print": 1,
-   "read": 1,
-   "report": 1,
-   "role": "All",
    "share": 1,
    "write": 1
   }
