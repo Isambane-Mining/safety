@@ -587,3 +587,137 @@ def get_today_snapshot(filters=None):
         "color_by_site": color_by_site,
         "company_colour": company_colour,
     }
+
+
+# MONTHLY SHE SHARED SITE SECURITY DEPENDENCIES
+def filter_safety_operation_sites(sites, operation=None):
+    """Filter authorized sites by configured operation."""
+    operation = operation or "Mining and Workshop"
+
+    if operation not in (
+        "Mining",
+        "Workshop",
+        "Mining and Workshop",
+    ):
+        frappe.throw(
+            "Invalid Safety Dashboard operation.",
+            frappe.PermissionError,
+        )
+
+    if operation == "Mining and Workshop":
+        return list(sites)
+
+    doc = frappe.get_single("Site Start Dates")
+
+    classified = {}
+
+    for row in doc.get("site_and_start_date", []):
+        site = row.get("site")
+        value = row.get("operation")
+
+        if site and value:
+            classified[site] = value
+
+    return [
+        site for site in sites
+        if classified.get(site) == operation
+    ]
+
+
+
+def resolve_safety_dashboard_sites(requested=None, operation=None, user=None):
+    """Return only sites authorized for the current user."""
+    from is_attendance.permissions import (
+        responsible_branches_for_user,
+    )
+
+    user = user or frappe.session.user
+
+    if not user or user == "Guest":
+        frappe.throw(
+            "Login required.",
+            frappe.PermissionError,
+        )
+
+    if user != "Administrator":
+        roles = set(frappe.get_roles(user))
+
+        if not roles.intersection({
+            "Safety Manager",
+            "Safety User",
+        }):
+            frappe.throw(
+                "Safety Dashboard access denied.",
+                frappe.PermissionError,
+            )
+
+    cfg = get_site_start_config()
+
+    configured = {
+        site
+        for site, value in cfg.items()
+        if isinstance(value, dict)
+    }
+
+    configured.update({
+        "Plot 20",
+        "Plot 22",
+        "Plot 22 Workshop",
+    })
+
+    selected = parse_selected_sites(requested)
+
+    if any(site not in configured for site in selected):
+        frappe.throw(
+            "Invalid Safety Dashboard site selection.",
+            frappe.PermissionError,
+        )
+
+    if user == "Administrator":
+        allowed = configured
+    else:
+        assignments = frappe.get_all(
+            "User Permission",
+            filters={
+                "user": user,
+                "allow": "Branch",
+            },
+            pluck="for_value",
+        )
+
+        if not assignments:
+            frappe.throw(
+                "No Branch permissions assigned.",
+                frappe.PermissionError,
+            )
+
+        allowed = configured & set(assignments)
+
+        hr_branches = set(
+            responsible_branches_for_user(user)
+        )
+
+        if hr_branches:
+            allowed &= hr_branches
+
+        if not allowed:
+            frappe.throw(
+                "No authorized Safety Dashboard sites.",
+                frappe.PermissionError,
+            )
+
+    if any(site not in allowed for site in selected):
+        frappe.throw(
+            "Access denied for selected sites.",
+            frappe.PermissionError,
+        )
+
+    sites = (
+        list(dict.fromkeys(selected))
+        if selected
+        else sorted(allowed)
+    )
+
+    return filter_safety_operation_sites(
+        sites, operation
+    )

@@ -1,0 +1,106 @@
+{
+ "doctype": "DocType",
+ "name": "Monthly SHE Data",
+ "module": "Safety",
+ "custom": 0,
+ "autoname": "hash",
+ "engine": "InnoDB",
+ "track_changes": 1,
+ "field_order": [
+  "site",
+  "reporting_month",
+  "hours_recorded",
+  "hours_worked",
+  "workforce_recorded",
+  "workforce",
+  "verification_status",
+  "verified_by",
+  "verified_on",
+  "remarks"
+ ],
+ "fields": [
+  {
+   "fieldname": "site",
+   "label": "Site",
+   "fieldtype": "Link",
+   "options": "Branch",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "reporting_month",
+   "label": "Reporting Month",
+   "fieldtype": "Date",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "hours_recorded",
+   "label": "Hours Worked Recorded",
+   "fieldtype": "Check"
+  },
+  {
+   "fieldname": "hours_worked",
+   "label": "Hours Worked",
+   "fieldtype": "Float",
+   "precision": "2"
+  },
+  {
+   "fieldname": "workforce_recorded",
+   "label": "Workforce Recorded",
+   "fieldtype": "Check"
+  },
+  {
+   "fieldname": "workforce",
+   "label": "Workforce",
+   "fieldtype": "Int"
+  },
+  {
+   "fieldname": "verification_status",
+   "label": "Verification Status",
+   "fieldtype": "Select",
+   "options": "Draft\nVerified",
+   "default": "Draft",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "verified_by",
+   "label": "Verified By",
+   "fieldtype": "Link",
+   "options": "User",
+   "read_only": 1
+  },
+  {
+   "fieldname": "verified_on",
+   "label": "Verified On",
+   "fieldtype": "Datetime",
+   "read_only": 1
+  },
+  {
+   "fieldname": "remarks",
+   "label": "Remarks",
+   "fieldtype": "Small Text"
+  }
+ ],
+ "permissions": [
+  {
+   "role": "Safety User",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 0,
+   "export": 1
+  },
+  {
+   "role": "Safety Manager",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 0,
+   "export": 1
+  }
+ ],
+ "sort_field": "reporting_month",
+ "sort_order": "DESC"
+}

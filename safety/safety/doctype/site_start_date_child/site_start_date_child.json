@@ -12,7 +12,8 @@
   "ltifr_target",
   "ltifr",
   "color",
-  "complex"
+  "complex",
+  "operation"
  ],
  "fields": [
   {
@@ -49,6 +50,13 @@
    "fieldtype": "Select",
    "label": "Complex",
    "options": "\nMiddelburg\nErmelo\nOther\nPlot 22"
+  },
+  {
+   "fieldname": "operation",
+   "fieldtype": "Select",
+   "label": "Operation",
+   "options": "\nMining\nWorkshop",
+   "in_list_view": 1
   },
   {
    "fieldname": "ltifr",
