@@ -1,7 +1,7 @@
 {
  "app": "safety",
  "charts": [],
- "content": "[{\"id\":\"WM46gAsu6s\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Safety</span>\",\"col\":12}},{\"id\":\"YDdwWE9CLa\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Safety Dashboard Mining\",\"col\":6}},{\"id\":\"WfI_v7M2fp\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Head Office Safety Dashboard\",\"col\":6}},{\"id\":\"XIn5aw_5EN\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Action Manager\",\"col\":12}},{\"id\":\"tzg3OQoghB\",\"type\":\"card\",\"data\":{\"card_name\":\"Incident Management\",\"col\":4}},{\"id\":\"NMU_17QV6G\",\"type\":\"card\",\"data\":{\"card_name\":\"Reports\",\"col\":4}},{\"id\":\"8UkM4wQ-4X\",\"type\":\"card\",\"data\":{\"card_name\":\"Setup\",\"col\":4}},{\"id\":\"G2o10gRBsg\",\"type\":\"card\",\"data\":{\"card_name\":\"Emergency Preparedness\",\"col\":4}},{\"id\":\"WpjrZUuEsC\",\"type\":\"card\",\"data\":{\"card_name\":\"Visible Field Leadership\",\"col\":4}},{\"id\":\"WrUSDHlsGE\",\"type\":\"card\",\"data\":{\"card_name\":\"Document Control\",\"col\":4}},{\"id\":\"bh_v7XYmUg\",\"type\":\"card\",\"data\":{\"card_name\":\"PPE Control\",\"col\":4}}]",
+ "content": "[{\"id\":\"WM46gAsu6s\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Safety</span>\",\"col\":12}},{\"id\":\"YDdwWE9CLa\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Safety Dashboard Mining\",\"col\":6}},{\"id\":\"WfI_v7M2fp\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Head Office Safety Dashboard\",\"col\":6}},{\"id\":\"XIn5aw_5EN\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Action Manager\",\"col\":12}},{\"id\":\"tzg3OQoghB\",\"type\":\"card\",\"data\":{\"card_name\":\"Incident Management\",\"col\":4}},{\"id\":\"e6b74f8cb7\",\"type\":\"card\",\"data\":{\"card_name\":\"Monthly SHE\",\"col\":4}},{\"id\":\"NMU_17QV6G\",\"type\":\"card\",\"data\":{\"card_name\":\"Reports\",\"col\":4}},{\"id\":\"8UkM4wQ-4X\",\"type\":\"card\",\"data\":{\"card_name\":\"Setup\",\"col\":4}},{\"id\":\"G2o10gRBsg\",\"type\":\"card\",\"data\":{\"card_name\":\"Emergency Preparedness\",\"col\":4}},{\"id\":\"WpjrZUuEsC\",\"type\":\"card\",\"data\":{\"card_name\":\"Visible Field Leadership\",\"col\":4}},{\"id\":\"WrUSDHlsGE\",\"type\":\"card\",\"data\":{\"card_name\":\"Document Control\",\"col\":4}},{\"id\":\"bh_v7XYmUg\",\"type\":\"card\",\"data\":{\"card_name\":\"PPE Control\",\"col\":4}}]",
  "creation": "2025-03-19 11:24:52.276925",
  "custom_blocks": [],
  "docstatus": 0,
@@ -326,6 +326,35 @@
    "link_count": 0,
    "link_to": "PPE Per Designation",
    "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Monthly SHE",
+   "link_count": 2,
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Monthly SHE Data",
+   "link_count": 0,
+   "link_to": "Monthly SHE Data",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 1,
+   "label": "Monthly SHE Performance",
+   "link_count": 0,
+   "link_to": "Monthly SHE Performance",
+   "link_type": "Report",
    "onboard": 0,
    "type": "Link"
   },

@@ -4,7 +4,10 @@ app_publisher = "BuFf0k"
 app_description = "Safety Incident Management System for Mining"
 app_email = "buff0k@gmail.com"
 app_license = "mit"
-required_apps = ["frappe/hrms"]
+required_apps = [
+    "frappe/hrms",
+    "buff0k/is_attendance",
+]
 source_link = "http://github.com/buff0k/safety"
 app_logo_url = "/assets/safety/images/is-logo.png"
 app_home = "/desk/safety"
@@ -50,7 +53,8 @@ fixtures = [
 ]
 
 doctype_js = {
-    "Safety Performance Communication": "doctype/safety_performance_communication/safety_performance_communication.js"
+    "Safety Performance Communication": "doctype/safety_performance_communication/safety_performance_communication.js",
+    "Monthly SHE Data": "doctype/monthly_she_data/monthly_she_data.js"
 }
 
 scheduler_events = {
@@ -70,3 +74,19 @@ scheduler_events = {
 
 after_install = "safety.setup.add_employee_doclinks.ensure_employee_links"
 after_migrate = "safety.setup.add_employee_doclinks.ensure_employee_links"
+
+# MONTHLY SHE DATA SECURITY HOOKS V1
+permission_query_conditions = globals().get(
+    "permission_query_conditions", {}
+)
+permission_query_conditions["Monthly SHE Data"] = (
+    "safety.safety.doctype.monthly_she_data.monthly_she_data."
+    "get_permission_query_conditions"
+)
+
+has_permission = globals().get("has_permission", {})
+has_permission["Monthly SHE Data"] = (
+    "safety.safety.doctype.monthly_she_data.monthly_she_data."
+    "has_permission"
+)
+# END MONTHLY SHE DATA SECURITY HOOKS V1
